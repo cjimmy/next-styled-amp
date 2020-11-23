@@ -2,7 +2,7 @@
 
 [Next.js](https://nextjs.org/) supports Google AMP generation out of the box. In practice, I found AMP to be very fragile when using third-party packages. This repo is an example project of a Next.js project with [Styled Components](https://styled-components.com/) styling, focusing on making the associated AMP page the same as the standard page with minimal impact to the dev experience.
 
-It also, mainly to show as an examples, how to add AMP-compatible Google Analytics and custom fonts.
+It also shows, mainly as examples, how to add AMP-compatible Google Analytics and custom fonts.
 
 ## See the demo
 
@@ -17,6 +17,8 @@ And then open [http://localhost:3000](http://localhost:3000) with your browser.
 
 ### See it in AMP
 To see the associated AMP page, append a `?amp=1` to the end of URL if you're running it locally, or a `.amp` (e.g `www.example.com/index.amp`) to see it in production.
+
+Alternatively, you can the official [AMP Validator browser extension](https://chrome.google.com/webstore/detail/amp-validator/nmoffdblmcmgeicmolmhobpoocbbmknc). It will show you errors in your AMP pages and whether an AMP version exists for you to access.
 
 ## Features
 
@@ -47,7 +49,7 @@ To remove this, delete `components/Fonts/` and the associated code in `pages/_ap
 
 ---
 
-## Code
+Before using this project, please read Next's [docs](https://nextjs.org/docs/api-reference/next/amp) on `next/amp`.
 In `pages/index.js`, this is the config that tells Next you want to also export it as AMP.
 ```js
 export const config = {
