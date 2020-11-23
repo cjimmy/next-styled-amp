@@ -33,7 +33,7 @@ export default class CustomDocument extends Document {
   }
   render() {
     return (
-      <Html lang="en"> 
+      <Html lang="en">
         {/* Google Lighthouse complains when the `lang` tag isn't set */}
         <Head />
         <body>

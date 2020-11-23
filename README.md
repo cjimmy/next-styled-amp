@@ -7,6 +7,7 @@ It also, mainly to show as an examples, how to add AMP-compatible Google Analyti
 ## See the demo
 
 Demo page: [next-styled-amp.vercel.app/](https://next-styled-amp.vercel.app/)
+AMP page: [next-styled-amp.vercel.app/index.amp](https://next-styled-amp.vercel.app/index.amp)
 
 Or see it locally:
 ```bash
