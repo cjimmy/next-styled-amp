@@ -1,12 +1,12 @@
 # Next.js + AMP + Styled Components
 
-[Next.js](https://nextjs.org/) supports Google AMP generation out of the box. In practice, I found AMP to be very fragile when using third-party packages. This repo is an example project of a Next.js project with Styled Components styling, focusing on making the associated AMP page the same as the standard page with minimal impact to the dev experience.
+[Next.js](https://nextjs.org/) supports Google AMP generation out of the box. In practice, I found AMP to be very fragile when using third-party packages. This repo is an example project of a Next.js project with [Styled Components](https://styled-components.com/) styling, focusing on making the associated AMP page the same as the standard page with minimal impact to the dev experience.
 
 It also, mainly to show as an examples, how to add AMP-compatible Google Analytics and custom fonts.
 
 ## See the demo
 
-Demo page: TKTK
+Demo page: [next-styled-amp.vercel.app/](https://next-styled-amp.vercel.app/)
 
 Or see it locally:
 ```bash
@@ -32,7 +32,7 @@ import ../myStyles.css
 ```
 Even though Styled Components provides a means to add in global styles (see `styles/other-globals.js`), a standard css file, globally imported, is sometimes useful or necessary.
 
-`styles/globals.css` can be edited. It is minified (on build only) to `styles/globals.min.css`. That file is hard-coded to import and be injected into `pages/_document.js`. (The hardcoded part makes me cringe too, but for sake of example, it works).
+`styles/globals.css` can be edited. It is minified (on build only) to `styles/globals.min.css`. That file is hard-coded to import and be injected into `pages/_document.js`. `package.json`'s commands were also modified. (The hardcoded part makes me cringe too, but for sake of example, it works).
 
 ### Google Analytics
 Included is a AMP-compatible module for Google Analytics. It loads either the standard script or AMP's `<amp-analytics>` tag and logs pageviews in `_app.js`. Google Analytics is commonly used, but I mainly include it to show how to create a standard + AMP way of adding a component.
