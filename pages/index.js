@@ -1,9 +1,11 @@
 import Head from 'next/head';
 import styled from 'styled-components';
 import { useAmp } from 'next/amp';
+import Link from 'next/link';
 
-const Home = (props) => {
+const Home = () => {
   const isAmp = useAmp();
+  const switchLink = isAmp ? '/' : process.env.NODE_ENV === 'production' ? '/index.amp' : `/?amp=1`;
 
   return (
     <Container>
@@ -14,55 +16,56 @@ const Home = (props) => {
 
       <Main>
         <Title>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
+          <a href="https://nextjs.org">Next.js</a> + Styled Components
         </Title>
-
         <Description>
-          Get started by editing <Code>pages/index.js</Code>
+          A starter project for those looking to use AMP in their Next.js project
         </Description>
+        <Link href={switchLink}>
+          <a>Switch to {isAmp ? 'non-AMP' : 'AMP'} version of this site &rarr;</a>
+        </Link>
+
+        <FeaturesBox>
+          <FeaturesTitle>Features</FeaturesTitle>
+          <ul>
+            <li>Styled components</li>
+            <li>AMP-compatible Google Analytics</li>
+            <li>AMP-comptabile custom font loading</li>
+            <li>Global css imports</li>
+          </ul>
+        </FeaturesBox>
 
         <Grid>
-          <Card href="https://nextjs.org/docs">
-            <CardTitle>Documentation &rarr;</CardTitle>
-            <CardText>Find in-depth information about Next.js features and API.</CardText>
-          </Card>
-
-          <Card href="https://nextjs.org/learn">
-            <CardTitle>Learn &rarr;</CardTitle>
-            <CardText>Learn about Next.js in an interactive course with quizzes!</CardText>
+          <Card href="https://github.com/cjimmy/next-styled-amp">
+            <CardTitle>Github repo &rarr;</CardTitle>
+            <CardText>The code for this website. Explanation in the README</CardText>
           </Card>
 
           <Card href="https://github.com/vercel/next.js/tree/master/examples">
-            <CardTitle>Examples &rarr;</CardTitle>
-            <CardText>Discover and deploy boilerplate example Next.js projects.</CardText>
-          </Card>
-
-          <Card href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app">
-            <CardTitle>Deploy &rarr;</CardTitle>
-            <CardText>Instantly deploy your Next.js site to a public URL with Vercel.</CardText>
+            <CardTitle>Other Next.js Examples &rarr;</CardTitle>
+            <CardText>This project is a mashup of AMP + Styled Components</CardText>
           </Card>
         </Grid>
       </Main>
 
       <Footer>
-        <FooterLink
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          {!isAmp ? (
-            <FooterLogo src="/vercel.svg" alt="Vercel Logo" />
-          ) : (
-            <amp-img
-              alt="Vercel logo"
-              src="/vercel.svg"
-              width="80"
-              height="16"
-              layout="fixed"
-            ></amp-img>
-          )}
-        </FooterLink>
+        <div>
+          <VercelLogo>
+            Powered by{' '}
+            {!isAmp ? (
+              <FooterLogo src="/vercel.svg" alt="Vercel Logo" />
+            ) : (
+              <amp-img
+                alt="Vercel logo"
+                src="/vercel.svg"
+                width="80"
+                height="16"
+                layout="fixed"
+              ></amp-img>
+            )}
+          </VercelLogo>
+        </div>
+        <div>Modfied by Jimmy Chion</div>
       </Footer>
     </Container>
   );
@@ -94,13 +97,26 @@ const Main = styled.main`
   align-items: center;
 `;
 
+const FeaturesTitle = styled.h3`
+  text-align: center;
+`;
+
+const FeaturesBox = styled.div`
+  margin-top: 20px;
+  padding: 10px 40px;
+  border-radius: 8px;
+  box-shadow: 0 30px 60px -12px rgba(50, 50, 93, 0.15), 0 18px 36px -18px rgba(0, 0, 0, 0.22);
+`;
+
 const Footer = styled.footer`
   width: 100%;
   height: 100px;
   border-top: 1px solid #eaeaea;
+  font-size: 0.8rem;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
+  justify-content: center;
 `;
 
 const FooterLogo = styled.img`
@@ -108,10 +124,11 @@ const FooterLogo = styled.img`
   height: 1em;
 `;
 
-const FooterLink = styled.a`
+const VercelLogo = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-bottom: 10px;
 `;
 
 const Title = styled.h1`
@@ -132,15 +149,6 @@ const Description = styled.p`
   text-align: center;
   line-height: 1.5;
   font-size: 1.5rem;
-`;
-
-const Code = styled.code`
-  background: #fafafa;
-  border-radius: 5px;
-  padding: 0.75rem;
-  font-size: 1.1rem;
-  font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
-    Bitstream Vera Sans Mono, Courier New, monospace;
 `;
 
 const Grid = styled.div`
