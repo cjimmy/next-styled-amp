@@ -9,10 +9,14 @@ const GlobalStyles = () => <Styles />;
 export default GlobalStyles;
 
 const Styles = createGlobalStyle`
+  body {
+    background-color: #efefef;
+  }
+
   a {
-    color: red;
+    color: coral;
     :hover {
-      color: blue;
+      color: cornflowerblue;
     }
   }
 `;

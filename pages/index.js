@@ -103,15 +103,16 @@ const FeaturesTitle = styled.h3`
 
 const FeaturesBox = styled.div`
   margin-top: 20px;
-  padding: 10px 40px;
+  padding: 5px 40px 10px 40px;
   border-radius: 8px;
   box-shadow: 0 30px 60px -12px rgba(50, 50, 93, 0.15), 0 18px 36px -18px rgba(0, 0, 0, 0.22);
+  line-height: 1.5rem;
 `;
 
 const Footer = styled.footer`
   width: 100%;
   height: 100px;
-  border-top: 1px solid #eaeaea;
+  border-top: 1px solid #ddd;
   font-size: 0.8rem;
   display: flex;
   flex-direction: column;
@@ -132,7 +133,7 @@ const VercelLogo = styled.div`
 `;
 
 const Title = styled.h1`
-  color: #0070f3;
+  color: cornflowerblue;
   text-decoration: none;
   margin: 0;
   line-height: 1.15;
@@ -170,7 +171,7 @@ const Card = styled.a`
   text-align: left;
   color: inherit;
   text-decoration: none;
-  border: 1px solid #eaeaea;
+  border: 1px solid #ddd;
   border-radius: 10px;
   transition: color 0.15s ease, border-color 0.15s ease;
   &:hover,
